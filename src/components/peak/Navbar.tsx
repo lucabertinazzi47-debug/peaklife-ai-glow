@@ -38,11 +38,11 @@ export function Navbar() {
         </ul>
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
-          <button className="h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity flex items-center gap-2">
+          <Link to="/checkout" className="h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity flex items-center gap-2">
             <ShoppingBag className="h-4 w-4" />
             <span className="hidden sm:inline">Cart</span>
             <span className="ml-1 text-xs opacity-60">2</span>
-          </button>
+          </Link>
         </div>
       </nav>
     </motion.header>
