@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import { ShoppingBag, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "./ThemeToggle";
 
-const links = ["Shop", "Stack Builder", "Science", "Community", "Journal"];
+const links: { label: string; href: string }[] = [
+  { label: "Shop", href: "/shop" },
+  { label: "Stack Builder", href: "/#stack" },
+  { label: "Science", href: "/#science" },
+  { label: "Community", href: "/#community" },
+  { label: "Journal", href: "/#journal" },
+];
 
 export function Navbar() {
   return (
@@ -13,18 +20,18 @@ export function Navbar() {
       className="fixed top-4 inset-x-0 z-50 flex justify-center px-4"
     >
       <nav className="glass rounded-full pl-5 pr-2 py-2 flex items-center gap-2 md:gap-6 shadow-card max-w-5xl w-full">
-        <a href="/" className="flex items-center gap-2 font-display font-bold tracking-tight text-base md:text-lg">
+        <Link to="/" className="flex items-center gap-2 font-display font-bold tracking-tight text-base md:text-lg">
           <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-primary glow-primary">
             <span className="absolute inset-0 rounded-lg bg-gradient-primary blur-md opacity-60" />
             <Sparkles className="relative h-4 w-4 text-primary-foreground" />
           </span>
           PeakLife
-        </a>
+        </Link>
         <ul className="hidden md:flex items-center gap-1 ml-4 text-sm text-muted-foreground">
           {links.map((l) => (
-            <li key={l}>
-              <a href="#" className="px-3 py-1.5 rounded-full hover:text-foreground hover:bg-accent/60 transition-colors">
-                {l}
+            <li key={l.label}>
+              <a href={l.href} className="px-3 py-1.5 rounded-full hover:text-foreground hover:bg-accent/60 transition-colors">
+                {l.label}
               </a>
             </li>
           ))}
